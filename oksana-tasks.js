@@ -1,27 +1,31 @@
-import Task from "./map.js";
-import { tasks } from "./map.js";
+import Task from "./constructor.js";
+import { tasks } from "./constructor.js"; 
 
 tasks.set(
   "555",
   new Task(
-    "Pascal's triangle is a numerical triangle in which there are '1' on the edges, and each number inside is equal to the sum of the two standing above it in the next row from above.Given a natural number n. Get the first n lines of a Pascal's triangle",
-    params => pascalTriangle(...params.split(","))
+    "Pascal's triangle is a numerical triangle in which there are '1' on the edges, and each number inside is equal to the sum of the two standing above it in the next row from above.Given a natural number n. Get the first n lines of a Pascal's triangle.",
+    params => pascalTriangle(...params)
   )
 );
 
-e;
+
 tasks.set(
-  "178h",
-  new Task("Given natural number n, a1, ... ,an. Find the number (ak) of sequence members a1, ... ,an that satisfy the given conditions: ak<(ak-1 + ak+1)/2", params => conditionH(...params.split(",")))
+  "178",
+  new Task(
+    "Given natural number n, a1, ... ,an. Find the number (ak) of sequence members a1, ... ,an that satisfy the given conditions: ak<(ak-1 + ak+1)/2. Please write two numbers (a1 and an)",
+    params => conditionH(...params)
+  )
 );
 tasks.set(
-  "178d",
-  new Task("Given natural number n, a1, ... ,an. Find the number (ak) of sequence members a1, ... ,an that satisfy the given conditions: 2**k<ak<k!", params => conditionD(...params.split(",")))
+  "179",
+  new Task(
+    "Given natural number n, a1, ... ,an. Find the number (ak) of sequence members a1, ... ,an that satisfy the given conditions: 2**k<ak<k!. Please write two numbers (a1 and an)",
+    params => conditionD(...params)
+  )
 );
 //----------------------------------555------------------------------------------------//
-function pascalTriangle() {
-  let numRows = prompt("Write number");
-
+function pascalTriangle(numRows) {
   function generate(numRows) {
     let triangle = [[1], [1, 1]];
 
@@ -54,16 +58,13 @@ function pascalTriangle() {
 
 //----------------------------------178h------------------------------------------------//
 
-function conditionH() {
-  let firstNumber = prompt("Введіть а1 елемент");
-  let secondNumber = prompt("Введіть аn елемент");
+function conditionH(firstNumber,secondNumber) {
   let arr = [];
   if (firstNumber <= 0) {
     console.log("Please write first number > 0");
   } else {
     for (let i = parseFloat(firstNumber); i <= secondNumber; i++) {
       arr.push(i);
-      //   console.log(i);
     }
 
     arr.forEach(function callback(currentValue, index, array) {
@@ -78,20 +79,14 @@ function conditionH() {
     console.log(count);
   }
 }
-
 //----------------------------------178d------------------------------------------------//
 
-function conditionD() {
-  let firstNumber = prompt("Введіть а1 елемент");
-  let secondNumber = prompt("Введіть аn елемент");
+function conditionD(firstNumber,secondNumber) {
   let arr = [];
-
   for (let i = parseFloat(firstNumber); i <= secondNumber; i++) {
     arr.push(i);
   }
   arr.forEach(function callback(currentValue, index, array) {
-    console.log(currentValue, index, array);
-
     if (
       2 ** (index + 1) < currentValue &&
       currentValue < factorial(index + 1)

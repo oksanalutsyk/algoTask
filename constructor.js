@@ -1,13 +1,13 @@
 export default class Task {
-    constructor(description, func) {
-      this.description = description;
-      this.func = func;
-    }
-  
-    run() {
-      let params = prompt(this.description);
-      this.func(params);
-    }
+  constructor(description, func) {
+    this.description = description;
+    this.func = func;
   }
 
-  export const tasks = new Map();
+  run() {
+    let params = prompt(this.description);
+    this.func(params);
+  }
+}
+
+export const tasks = new Map();

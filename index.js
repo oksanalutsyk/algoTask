@@ -1,4 +1,4 @@
-import { tasks } from './map.js'
+import { tasks } from './constructor.js'
 
 function start () {
     let number = prompt('Enter task number:');

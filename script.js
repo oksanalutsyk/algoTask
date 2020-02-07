@@ -137,3 +137,6 @@ class MethodFactory {
 }
 const getMethods = new MethodFactory();
 const res = getMethods.createMethods(b);
+
+
+
